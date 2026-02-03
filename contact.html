@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>DARI - Contact</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Load Require CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <style>
+        /* Image de fond pour toute la section contact */
+        body {
+            background-color: #f8f9fa;
+            background-image: url('assets/img/serrr.png');
+            background-size: cover;
+        }
+        
+        .contact-section-wrapper {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-section-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/serrr.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.4;
+            z-index: -1;
+        }
+        
+        .contact-section-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+        
+        /* Conteneur principal avec ombre */
+        .contact-container {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Section info contact */
+        .contact-info-sidebar {
+            background: linear-gradient(135deg, rgba(13, 18, 147, 0.9), rgba(92, 107, 192, 0.9));
+            color: white;
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-info-item {
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-info-icon i {
+            font-size: 1.5rem;
+        }
+        
+        .contact-info-content h5 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+        
+        /* Section formulaire transparent */
+        .contact-form-sidebar {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Titre du formulaire */
+        .form-title {
+            color: #0d1293;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        /* Champs de formulaire modernes et transparents */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(13, 18, 147, 0.2);
+            border-radius: 10px;
+            padding: 0.875rem 1.25rem;
+            color: #333;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            height: auto;
+        }
+        
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #0d1293;
+            box-shadow: 0 0 0 0.2rem rgba(13, 18, 147, 0.1);
+            color: #0d1293;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(13, 18, 147, 0.5);
+        }
+        
+        /* Labels clairs et bien visibles */
+        .form-label {
+            color: #0d1293;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        /* Zone de texte */
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Bouton de soumission */
+        .submit-btn {
+            background: linear-gradient(135deg, #0d1293, #5c6bc0);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 2.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #5c6bc0, #0d1293);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 18, 147, 0.3);
+            color: white;
+        }
+        
+        /* Requis */
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-info-sidebar,
+            .contact-form-sidebar {
+                padding: 2rem;
+            }
+            
+            .contact-container {
+                margin: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-section-wrapper::before {
+                background-attachment: scroll;
+            }
+            
+            .contact-container {
+                margin: 0.5rem;
+            }
+            
+            .contact-info-sidebar,
+            .contact-form-sidebar {
+                padding: 1.5rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand h1" href="index.html">
+                <img src="assets/img/bb-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
+                <div class="flex-fill mx-xl-5 mb-2">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">ACCUEILLE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html#services-section">SERVICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html#recent-work">PROJETS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="contact.html">CONTACT</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Start Contact -->
+    <section class="contact-section-wrapper py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="contact-container">
+                        <div class="row g-0">
+                            <!-- Informations de contact -->
+                            <div class="col-lg-5">
+                                <div class="contact-info-sidebar">
+                                    <h3 class="mb-4" style="color: white; font-weight: 700;">Contactez-nous</h3>
+                                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2.5rem;">
+                                        Remplissez le formulaire pour nous envoyer vos questions ou demandes.
+                                    </p>
+                                    
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-icon">
+                                            <i class='bx bx-phone'></i>
+                                        </div>
+                                        <div class="contact-info-content">
+                                            <h5>Téléphone</h5>
+                                            <p>+216 96 255 343</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-icon">
+                                            <i class='bx bx-envelope'></i>
+                                        </div>
+                                        <div class="contact-info-content">
+                                            <h5>Email</h5>
+                                            <p>dari4communication@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-info-item">
+                                        <div class="contact-info-icon">
+                                            <i class='bx bx-map'></i>
+                                        </div>
+                                        <div class="contact-info-content">
+                                            <h5>Localisation</h5>
+                                            <p>Beni Khiar, Nabeul, Tunisie</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Formulaire de contact transparent -->
+                            <div class="col-lg-7">
+                                <div class="contact-form-sidebar">
+                                    <h3 class="form-title">Envoyez-nous un message</h3>
+                                    
+                                    <form class="contact-form" method="post" action="#" role="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstName" class="form-label required">Prénom</label>
+                                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Votre prénom" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastName" class="form-label required">Nom</label>
+                                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Votre nom" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="email" class="form-label required">Email</label>
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="votre@email.com" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone" class="form-label required">Téléphone</label>
+                                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Votre numéro" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="subject" class="form-label required">Sujet du projet</label>
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="message" class="form-label required">Décrivez votre projet</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Décrivez votre projet en détail..." required></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group text-end">
+                                            <button type="submit" class="submit-btn">
+                                                <i class='bx bx-paper-plane me-2'></i>Envoyer le message
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact -->
+
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Templatemo -->
+    <script src="assets/js/templatemo.js"></script>
+    <!-- Custom -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>

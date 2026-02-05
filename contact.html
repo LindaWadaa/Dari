@@ -16,213 +16,395 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
-        /* Image de fond pour toute la section contact */
         body {
-            background-color: #f8f9fa;
             background-image: url('assets/img/serrr.png');
             background-size: cover;
-        }
-        
-        .contact-section-wrapper {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-section-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('assets/img/serrr.png');
-            background-size: cover;
-            background-position: center;
             background-attachment: fixed;
-            opacity: 0.4;
-            z-index: -1;
-        }
-        
-        .contact-section-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.85);
-            z-index: -1;
-        }
-        
-        /* Conteneur principal avec ombre */
-        .contact-container {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            background-position: center;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #0d1293;
+            height: 100vh;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        
-        /* Section info contact */
-        .contact-info-sidebar {
-            background: linear-gradient(135deg, rgba(13, 18, 147, 0.9), rgba(92, 107, 192, 0.9));
-            color: white;
-            padding: 3rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+
+        /* Navbar - Header Section - Separated */
+        #main_nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            z-index: 1000;
+            position: relative;
+            margin-bottom: 20px;
+            padding: 5px 0;
         }
-        
-        .contact-info-item {
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: flex-start;
+
+        .nav-link {
+            color: #0d1293 !important;
+            font-weight: 600;
+            font-size: 0.9rem !important;
+            transition: all 0.3s ease;
         }
-        
-        .contact-info-icon {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+
+        .nav-link:hover {
+            color: #5c6bc0 !important;
+        }
+
+        /* Main Container - Compact, No Scroll */
+        .main-container {
+            height: calc(100vh - 100px);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
+            padding: 10px;
+            overflow: hidden;
         }
-        
-        .contact-info-icon i {
-            font-size: 1.5rem;
+
+        /* Content Wrapper - NO BACKGROUND, transparent */
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            max-width: 850px;
+            width: 100%;
+            background: transparent;
+            padding: 0;
+            max-height: calc(100vh - 120px);
         }
-        
-        .contact-info-content h5 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+
+        /* Left Section - Form - NO BACKGROUND */
+        .horizontal-form {
+            flex: 1;
+            max-width: 500px;
+            margin-top: 110px;
         }
-        
-        .contact-info-content p {
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0;
+
+        /* Page Title - Very Compact */
+        .page-title {
+            background: linear-gradient(90deg, #0d1293 0%, #FFD24D 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
         }
-        
-        /* Section formulaire transparent */
-        .contact-form-sidebar {
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Titre du formulaire */
-        .form-title {
+
+        .page-subtitle {
             color: #0d1293;
+            font-size: 0.7rem;
+            text-align: center;
+            margin-bottom: 12px;
             font-weight: 700;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
         }
-        
-        /* Champs de formulaire modernes et transparents */
+
+        /* Form Section Titles - Tiny */
+        .form-section-title {
+            background: linear-gradient(90deg, #0d1293 0%, #5c6bc0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 8px 0 6px 0;
+            padding-left: 6px;
+            border-left: 2px solid #FFD24D;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
+        }
+
+        /* Form Rows - Very Compact */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
         .form-group {
-            margin-bottom: 1.5rem;
+            flex: 1;
+            min-width: 140px;
         }
-        
-        .form-control {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(13, 18, 147, 0.2);
-            border-radius: 10px;
-            padding: 0.875rem 1.25rem;
-            color: #333;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            height: auto;
-        }
-        
-        .form-control:focus {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: #0d1293;
-            box-shadow: 0 0 0 0.2rem rgba(13, 18, 147, 0.1);
-            color: #0d1293;
-        }
-        
-        .form-control::placeholder {
-            color: rgba(13, 18, 147, 0.5);
-        }
-        
-        /* Labels clairs et bien visibles */
+
         .form-label {
             color: #0d1293;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            margin-bottom: 3px;
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
         }
-        
-        /* Zone de texte */
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        /* Bouton de soumission */
-        .submit-btn {
-            background: linear-gradient(135deg, #0d1293, #5c6bc0);
-            border: none;
-            color: white;
-            font-weight: 600;
-            padding: 0.875rem 2.5rem;
-            border-radius: 10px;
+
+        .form-control {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1.5px solid rgba(13, 18, 147, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+            color: #0d1293;
+            font-size: 0.75rem;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #0d1293;
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 0 0 2px rgba(13, 18, 147, 0.15), 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-control::placeholder {
+            color: rgba(13, 18, 147, 0.5);
+            font-weight: 500;
+            font-size: 0.7rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 50px;
+            max-height: 65px;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        /* Submit Button - Small */
+        .submit-btn {
+            background: linear-gradient(135deg, #0d1293 0%, #FFD24D 100%);
+            color: white;
+            border: none;
+            padding: 7px 25px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 8px;
+            box-shadow: 0 3px 12px rgba(13, 18, 147, 0.35);
         }
-        
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFD24D 0%, #0d1293 100%);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
         .submit-btn:hover {
-            background: linear-gradient(135deg, #5c6bc0, #0d1293);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(13, 18, 147, 0.3);
-            color: white;
+            box-shadow: 0 6px 20px rgba(255, 212, 77, 0.6);
         }
-        
-        /* Requis */
-        .required::after {
-            content: " *";
-            color: #e74c3c;
+
+        .submit-btn:hover::before {
+            left: 0;
         }
-        
+
+        .submit-btn i {
+            margin-right: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Right Section - Map - Small */
+        .map-section {
+            flex: 0 0 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            margin-top: 87px;
+        }
+
+        .map-title {
+            background: linear-gradient(90deg, #0d1293 0%, #FFD24D 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 110px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid #0d1293;
+            margin-bottom: 8px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .location-info {
+            color: #0d1293;
+            font-size: 0.7rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.4;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
+        }
+
+        .location-info i {
+            color: #FFD24D;
+            margin-right: 3px;
+        }
+
+        /* Réseaux sociaux - Style Premium */
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #0d1293 0%, #FFD24D 100%);
+            border-radius: 50%;
+            color: white !important;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 10px rgba(13, 18, 147, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFD24D 0%, #0d1293 100%);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 210, 77, 0.5);
+        }
+
+        .social-link:hover::before {
+            left: 0;
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+        }
+
         /* Responsive */
-        @media (max-width: 992px) {
-            .contact-info-sidebar,
-            .contact-form-sidebar {
-                padding: 2rem;
+        @media (max-width: 1200px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
             }
-            
-            .contact-container {
-                margin: 1rem;
+
+            .main-container {
+                height: auto;
+                min-height: calc(100vh - 100px);
+                padding: 40px 10px;
+                overflow: visible;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                gap: 30px;
+                max-height: none;
+                overflow: visible;
+            }
+
+            .map-section {
+                flex: none;
+                width: 100%;
+                max-width: 500px;
+                margin-top: 20px;
+                /* Reset margin for stacked layout */
             }
         }
-        
+
         @media (max-width: 768px) {
-            .contact-section-wrapper::before {
-                background-attachment: scroll;
+            .main-container {
+                padding: 20px 10px;
+                height: auto;
             }
-            
-            .contact-container {
-                margin: 0.5rem;
+
+            .horizontal-form {
+                margin-top: 0;
             }
-            
-            .contact-info-sidebar,
-            .contact-form-sidebar {
-                padding: 1.5rem;
+
+            .content-wrapper {
+                gap: 20px;
             }
-            
-            .form-title {
-                font-size: 1.5rem;
+
+            .page-title {
+                font-size: 1.3rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.75rem;
+                margin-bottom: 20px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .form-group {
+                min-width: 100%;
+            }
+
+            .form-section-title {
+                font-size: 0.85rem;
+                margin: 15px 0 10px 0;
+            }
+
+            .map-section {
+                padding: 15px;
+                margin-bottom: 30px;
+            }
+
+            textarea.form-control {
+                max-height: 100px;
             }
         }
     </style>
@@ -235,150 +417,198 @@
             <a class="navbar-brand h1" href="index.html">
                 <img src="assets/img/bb-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
+            <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+                id="navbar-toggler-success">
                 <div class="flex-fill mx-xl-5 mb-2">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center">
                         <li class="nav-item">
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">ACCUEILLE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html#services-section">SERVICES</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3"
+                                href="index.html#services-section">SERVICES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html#recent-work">PROJETS</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3"
+                                href="index.html#recent-work">PROJETS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="contact.html">CONTACT</a>
                         </li>
-                        
                     </ul>
                 </div>
-            
             </div>
         </div>
     </nav>
     <!-- Close Header -->
 
-    <!-- Start Contact -->
-    <section class="contact-section-wrapper py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <div class="contact-container">
-                        <div class="row g-0">
-                            <!-- Informations de contact -->
-                            <div class="col-lg-5">
-                                <div class="contact-info-sidebar">
-                                    <h3 class="mb-4" style="color: white; font-weight: 700;">Contactez-nous</h3>
-                                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2.5rem;">
-                                        Remplissez le formulaire pour nous envoyer vos questions ou demandes.
-                                    </p>
-                                    
-                                    <div class="contact-info-item">
-                                        <div class="contact-info-icon">
-                                            <i class='bx bx-phone'></i>
-                                        </div>
-                                        <div class="contact-info-content">
-                                            <h5>Téléphone</h5>
-                                            <p>+216 96 255 343</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="contact-info-item">
-                                        <div class="contact-info-icon">
-                                            <i class='bx bx-envelope'></i>
-                                        </div>
-                                        <div class="contact-info-content">
-                                            <h5>Email</h5>
-                                            <p>dari4communication@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="contact-info-item">
-                                        <div class="contact-info-icon">
-                                            <i class='bx bx-map'></i>
-                                        </div>
-                                        <div class="contact-info-content">
-                                            <h5>Localisation</h5>
-                                            <p>Beni Khiar, Nabeul, Tunisie</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Formulaire de contact transparent -->
-                            <div class="col-lg-7">
-                                <div class="contact-form-sidebar">
-                                    <h3 class="form-title">Envoyez-nous un message</h3>
-                                    
-                                    <form class="contact-form" method="post" action="#" role="form">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="firstName" class="form-label required">Prénom</label>
-                                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Votre prénom" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="lastName" class="form-label required">Nom</label>
-                                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Votre nom" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="email" class="form-label required">Email</label>
-                                                    <input type="email" class="form-control" id="email" name="email" placeholder="votre@email.com" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="phone" class="form-label required">Téléphone</label>
-                                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Votre numéro" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label for="subject" class="form-label required">Sujet du projet</label>
-                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet de votre message" required>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label for="message" class="form-label required">Décrivez votre projet</label>
-                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Décrivez votre projet en détail..." required></textarea>
-                                        </div>
-                                        
-                                        <div class="form-group text-end">
-                                            <button type="submit" class="submit-btn">
-                                                <i class='bx bx-paper-plane me-2'></i>Envoyer le message
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+    <!-- Contenu principal -->
+    <div class="main-container">
+        <div class="content-wrapper">
+            <!-- Formulaire -->
+            <div class="horizontal-form">
+                <h1 class="page-title">Contactez-nous</h1>
+                <p class="page-subtitle">Partagez-nous votre projet, nous vous accompagnons de A à Z</p>
+
+                <form id="contactForm" class="contact-form" method="POST">
+                    <h2 class="form-section-title">Informations Personnelles</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Nom & Prénom</label>
+                            <input type="text" name="nom_prenom" class="form-control" placeholder="Votre nom et prénom"
+                                required>
                         </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Téléphone</label>
+                            <input type="tel" name="telephone" class="form-control"
+                                placeholder="Votre numéro de téléphone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Adresse Complète</label>
+                        <input type="text" name="adresse" class="form-control" placeholder="Votre adresse complète"
+                            required>
+                    </div>
+
+                    <h2 class="form-section-title">Détails du Projet</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Description du Projet</label>
+                        <textarea name="description_projet" class="form-control"
+                            placeholder="Décrivez votre projet en détails : surface, budget estimé, délais souhaités..."
+                            rows="5" required></textarea>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="submit-btn">
+                            <i class='bx bx-paper-plane'></i>Envoyer ma Demande
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Carte -->
+            <div class="map-section">
+                <h3 class="map-title">Notre Localisation</h3>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.245678912345!2d10.734567!3d36.464256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDI3JzUxLjMiTiAxMMKwNDQnMDQuNCJF!5e0!3m2!1sfr!2stn!4v1640000000000!5m2!1sfr!2stn"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+                <p class="location-info">
+                    <i class='bx bx-map'></i> Beni Khiar, Nabeul<br>
+                    <i class='bx bx-world'></i> Tunisie
+                </p>
+
+                <!-- Réseaux sociaux -->
+                <div style="text-align: center; margin-top: 12px;">
+                    <p
+                        style="color: #0d1293; font-size: 0.75rem; font-weight: 700; margin-bottom: 8px; text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);">
+                        Suivez-nous :</p>
+                    <div style="display: flex; justify-content: center; gap: 12px;">
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=61586690022691"
+                            title="Facebook" class="social-link">
+                            <i class='bx bxl-facebook-square'></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/dari.company/" title="Instagram"
+                            class="social-link">
+                            <i class='bx bxl-instagram-alt'></i>
+                        </a>
+                        <a target="_blank" href="https://wa.me/21696255343" title="WhatsApp" class="social-link">
+                            <i class='bx bxl-whatsapp-square'></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End Contact -->
+    </div>
 
-    <!-- Bootstrap -->
+    <!-- Scripts -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Templatemo -->
     <script src="assets/js/templatemo.js"></script>
-    <!-- Custom -->
     <script src="assets/js/custom.js"></script>
 
+    <script>
+        // Initialisation EmailJS
+        (function () {
+            emailjs.init("wEyH5cbx3pZdBDnTW");
+        })();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animation du contenu
+            const contentWrapper = document.querySelector('.content-wrapper');
+            contentWrapper.style.opacity = '0';
+            contentWrapper.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                contentWrapper.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                contentWrapper.style.opacity = '1';
+                contentWrapper.style.transform = 'translateY(0)';
+            }, 300);
+
+            // Gestion du formulaire avec EmailJS
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const originalText = submitBtn.innerHTML;
+
+                    submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Envoi en cours...';
+                    submitBtn.disabled = true;
+
+                    // Préparer les données du template
+                    const templateParams = {
+                        nom_prenom: this.nom_prenom.value,
+                        telephone: this.telephone.value,
+                        adresse: this.adresse.value,
+                        description_projet: this.description_projet.value,
+                        to_email_1: 'dari4communication@gmail.com',
+                        to_email_2: 'wdaalinda424@gmail.com'
+                    };
+
+                    // Envoyer via EmailJS
+                    emailjs.send('service_pxz1y57', 'template_9qb4c2i', templateParams)
+                        .then(function (response) {
+                            // Succès
+                            console.log('SUCCESS!', response.status, response.text);
+                            submitBtn.innerHTML = '<i class="bx bx-check me-2"></i>Message envoyé!';
+                            submitBtn.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+
+                            // Réinitialiser le formulaire après 3 secondes
+                            setTimeout(() => {
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.disabled = false;
+                                submitBtn.style.background = '';
+                                contactForm.reset();
+                            }, 3000);
+                        }, function (error) {
+                            // Erreur
+                            console.log('FAILED...', error);
+                            submitBtn.innerHTML = '<i class="bx bx-error me-2"></i>Erreur d\'envoi';
+                            submitBtn.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+
+                            setTimeout(() => {
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.disabled = false;
+                                submitBtn.style.background = '';
+                            }, 3000);
+                        });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -170,6 +170,7 @@ nav.navbar {
   filter: none !important;
   transition: filter 240ms ease;
 }
+
 #main_nav .navbar-brand img:hover {
   filter: brightness(0.95);
 }
@@ -238,14 +239,15 @@ nav.navbar {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 4px 16px rgba(13,18,147,0.10);
-  -webkit-text-stroke: 0.2px rgba(0,0,0,0.02);
+  text-shadow: 0 4px 16px rgba(13, 18, 147, 0.10);
+  -webkit-text-stroke: 0.2px rgba(0, 0, 0, 0.02);
 }
+
 .hero-sub {
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 700ms ease 120ms, transform 700ms ease 120ms;
-  color: rgba(0,0,0,0.65);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 /* when in view */
@@ -253,6 +255,7 @@ nav.navbar {
   opacity: 1;
   transform: translateY(0);
 }
+
 .recent-work-header.in-view .hero-sub {
   opacity: 1;
   transform: translateY(0);
@@ -262,6 +265,7 @@ nav.navbar {
 .recent-work-header .hero-title {
   position: relative;
 }
+
 .recent-work-header .hero-title::after {
   content: '';
   width: 72px;
@@ -294,24 +298,40 @@ nav.navbar {
   #recent-work {
     padding: 2rem 0;
   }
-  .hero-title { font-size: 1.6rem; }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
 }
 
 /* Apply gradient, bold style to all main site headings (except header/footer) */
-section h1, section h2, section h3, .h1, .h2, .h3 {
+section h1,
+section h2,
+section h3,
+.h1,
+.h2,
+.h3 {
   background: linear-gradient(90deg, var(--bs-primary) 0%, #FFD24D 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
-  text-shadow: 0 3px 8px rgba(13,18,147,0.06);
+  text-shadow: 0 3px 8px rgba(13, 18, 147, 0.06);
 }
 
 /* Ensure header and footer headings keep their original styles */
-#main_nav h1, #main_nav h2, #main_nav h3,
-footer h1, footer h2, footer h3,
-#main_nav .h1, #main_nav .h2, #main_nav .h3,
-footer .h1, footer .h2, footer .h3 {
+#main_nav h1,
+#main_nav h2,
+#main_nav h3,
+footer h1,
+footer h2,
+footer h3,
+#main_nav .h1,
+#main_nav .h2,
+#main_nav .h3,
+footer .h1,
+footer .h2,
+footer .h3 {
   background: none !important;
   -webkit-text-fill-color: unset !important;
   color: inherit !important;
@@ -321,6 +341,7 @@ footer .h1, footer .h2, footer .h3 {
 
 /* Footer background styling - natural display */
 footer.bg-secondary {
+  background-color: #ffffff !important;
   background-image: url('../img/footer.png') !important;
   background-size: 100% auto;
   background-position: center top;
@@ -328,6 +349,7 @@ footer.bg-secondary {
   position: relative;
   background-attachment: scroll;
   min-height: auto;
+  border-top: 1px solid rgba(13, 18, 147, 0.1);
 }
 
 /* Enhanced social media icons - attractive styling */
@@ -344,12 +366,12 @@ footer.bg-secondary {
   border-radius: 50%;
   background: linear-gradient(135deg, #0d1293, #5c6bc0);
   transition: all 280ms ease;
-  box-shadow: 0 4px 12px rgba(13,18,147,0.3);
+  box-shadow: 0 4px 12px rgba(13, 18, 147, 0.3);
 }
 
 .footer-icons .list-inline-item a:hover {
   transform: translateY(-4px) scale(1.12);
-  box-shadow: 0 8px 20px rgba(255,214,77,0.4);
+  box-shadow: 0 8px 20px rgba(255, 214, 77, 0.4);
   background: linear-gradient(135deg, #5c6bc0, #FFD24D);
 }
 
@@ -361,15 +383,16 @@ footer.bg-secondary {
 /* Map container */
 .footer-map {
   height: 140px;
+  max-width: 85%;
   border-radius: 8px;
   overflow: hidden;
   margin-top: 0;
-  box-shadow: 0 4px 12px rgba(13,18,147,0.25);
+  box-shadow: 0 4px 12px rgba(13, 18, 147, 0.25);
 }
 
 /* Footer contact styling */
 .footer-contact {
-  background: linear-gradient(135deg, rgba(13,18,147,0.08), rgba(92,107,192,0.06));
+  background: linear-gradient(135deg, rgba(13, 18, 147, 0.08), rgba(92, 107, 192, 0.06));
   padding: 1.25rem;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -379,8 +402,8 @@ footer.bg-secondary {
 }
 
 .footer-contact:hover {
-  background: linear-gradient(135deg, rgba(13,18,147,0.12), rgba(92,107,192,0.10));
-  box-shadow: 0 4px 12px rgba(255,212,77,0.15);
+  background: linear-gradient(135deg, rgba(13, 18, 147, 0.12), rgba(92, 107, 192, 0.10));
+  box-shadow: 0 4px 12px rgba(255, 212, 77, 0.15);
 }
 
 /* Footer title and text styling */
@@ -418,6 +441,7 @@ footer .footer-contact a:hover {
 
 /* TABLET - 768px and below */
 @media (max-width: 767px) {
+
   /* Header adjustments */
   #main_nav {
     position: relative !important;
@@ -498,7 +522,8 @@ footer .footer-contact a:hover {
 
   /* Footer adjustments */
   footer.bg-secondary {
-    background-size: 150% auto;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 
   .footer-contact {
@@ -528,13 +553,19 @@ footer .footer-contact a:hover {
     font-size: 1rem;
   }
 
-  section h1, section h2, section h3, .h1, .h2, .h3 {
+  section h1,
+  section h2,
+  section h3,
+  .h1,
+  .h2,
+  .h3 {
     font-size: 1.4rem;
   }
 }
 
 /* MOBILE - 576px and below */
 @media (max-width: 575px) {
+
   /* Body padding */
   body {
     font-size: 14px;
@@ -718,8 +749,9 @@ footer .footer-contact a:hover {
 
   /* Footer */
   footer.bg-secondary {
-    background-size: 200% auto;
-    padding: 2rem 1rem !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    padding: 2.5rem 1rem !important;
   }
 
   .footer-contact {
@@ -728,13 +760,14 @@ footer .footer-contact a:hover {
     margin-bottom: 1rem !important;
   }
 
-  .footer-contact p, .footer-contact li {
+  .footer-contact p,
+  .footer-contact li {
     font-size: 0.85rem;
   }
 
   .footer-map {
     height: 180px;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
   }
 
   footer h3 {
@@ -760,7 +793,12 @@ footer .footer-contact a:hover {
     font-size: 0.9rem;
   }
 
-  section h1, section h2, section h3, .h1, .h2, .h3 {
+  section h1,
+  section h2,
+  section h3,
+  .h1,
+  .h2,
+  .h3 {
     font-size: 1.2rem;
   }
 
@@ -798,7 +836,12 @@ footer .footer-contact a:hover {
     padding: 0.8rem !important;
   }
 
-  section h1, section h2, section h3, .h1, .h2, .h3 {
+  section h1,
+  section h2,
+  section h3,
+  .h1,
+  .h2,
+  .h3 {
     font-size: 1rem;
   }
 }
@@ -813,7 +856,12 @@ footer .footer-contact a:hover {
     font-size: 2.5rem !important;
   }
 
-  section h1, section h2, section h3, .h1, .h2, .h3 {
+  section h1,
+  section h2,
+  section h3,
+  .h1,
+  .h2,
+  .h3 {
     font-size: 2rem;
   }
 

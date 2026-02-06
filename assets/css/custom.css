@@ -226,6 +226,17 @@ nav.navbar {
   box-shadow: 0 8px 25px rgba(13, 18, 147, 0.3) !important;
 }
 
+.service-work-content h4 {
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.service-work-content p {
+  font-weight: 400 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 /* Recent work hero animations */
 .hero-title {
   font-size: 2.25rem;
@@ -390,20 +401,24 @@ footer.bg-secondary {
   box-shadow: 0 4px 12px rgba(13, 18, 147, 0.25);
 }
 
-/* Footer contact styling */
+/* Footer contact styling - Glassmorphism style from screenshot */
 .footer-contact {
-  background: linear-gradient(135deg, rgba(13, 18, 147, 0.08), rgba(92, 107, 192, 0.06));
-  padding: 1.25rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border-left: 4px solid #FFD24D;
-  transition: all 280ms ease;
-  max-width: 320px;
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #FFD24D !important;
+  box-shadow: 0 8px 32px rgba(13, 18, 147, 0.1);
+  max-width: 450px;
+  transition: all 0.3s ease;
 }
 
 .footer-contact:hover {
-  background: linear-gradient(135deg, rgba(13, 18, 147, 0.12), rgba(92, 107, 192, 0.10));
-  box-shadow: 0 4px 12px rgba(255, 212, 77, 0.15);
+  background: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(13, 18, 147, 0.15);
+  transform: translateY(-2px);
 }
 
 /* Footer title and text styling */
@@ -427,12 +442,20 @@ footer h3.footer-title {
 footer .footer-contact a,
 footer .footer-contact li {
   color: #0d1293 !important;
-  font-weight: 500;
-  transition: color 200ms ease;
+  font-weight: 600;
+  font-size: 1.4rem;
+  transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+}
+
+footer .footer-contact i {
+  font-size: 2.2rem !important;
+  margin-right: 1.5rem;
 }
 
 footer .footer-contact a:hover {
-  color: #FFD24D !important;
+  color: #5c6bc0 !important;
 }
 
 /* ========================================

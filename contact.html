@@ -463,20 +463,22 @@
                         <div class="form-group">
                             <label class="form-label">Nom & Prénom</label>
                             <input type="text" name="nom_prenom" class="form-control" placeholder="Votre nom et prénom"
-                                required>
+                                minlength="3" pattern="^[a-zA-ZÀ-ÿ\s']+$"
+                                title="Le nom ne doit contenir que des lettres et des espaces" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Téléphone</label>
-                            <input type="tel" name="telephone" class="form-control"
-                                placeholder="Votre numéro de téléphone" required>
+                            <input type="tel" name="telephone" class="form-control" value="+216"
+                                placeholder="+216XXXXXXXX" pattern="^\+216[0-9]{8}$"
+                                title="Le numéro doit commencer par +216 suivi de 8 chiffres" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Adresse Complète</label>
-                        <input type="text" name="adresse" class="form-control" placeholder="Votre adresse complète"
-                            required>
+                        <input type="text" name="adresse" class="form-control"
+                            placeholder="Votre adresse complète (ex: Rue, Ville, Code Postal)" minlength="10" required>
                     </div>
 
                     <h2 class="form-section-title">Détails du Projet</h2>
@@ -484,8 +486,8 @@
                     <div class="form-group">
                         <label class="form-label">Description du Projet</label>
                         <textarea name="description_projet" class="form-control"
-                            placeholder="Décrivez votre projet en détails : surface, budget estimé, délais souhaités..."
-                            rows="5" required></textarea>
+                            placeholder="Décrivez votre projet en détails (min 20 caractères) : surface, budget estimé, délais souhaités..."
+                            rows="5" minlength="20" required></textarea>
                     </div>
 
                     <div style="text-align: center;">
@@ -561,6 +563,12 @@
             if (contactForm) {
                 contactForm.addEventListener('submit', function (e) {
                     e.preventDefault();
+
+                    // Vérification de la validité du formulaire
+                    if (!this.checkValidity()) {
+                        this.reportValidity();
+                        return;
+                    }
 
                     const submitBtn = this.querySelector('.submit-btn');
                     const originalText = submitBtn.innerHTML;

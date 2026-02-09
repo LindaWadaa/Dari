@@ -1,13 +1,13 @@
 // Transparent header on scroll
-$(document).ready(function() {
+$(document).ready(function () {
     // Set initial state
     if ($(window).scrollTop() > 50) {
         $('#main_nav').addClass('transparent');
     } else {
         $('#main_nav').removeClass('transparent');
     }
-    
-    $(window).scroll(function() {
+
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
             $('#main_nav').addClass('transparent');
         } else {
@@ -17,11 +17,11 @@ $(document).ready(function() {
 });
 
 // Filter scroll navigation
-$(document).ready(function() {
+$(document).ready(function () {
     const filterList = $('#filterList');
     const scrollDistance = 250;
-    
-    $('#scrollMore').click(function(e) {
+
+    $('#scrollMore').click(function (e) {
         e.preventDefault();
         filterList.animate({
             scrollLeft: filterList.scrollLeft() + scrollDistance
@@ -30,11 +30,11 @@ $(document).ready(function() {
 });
 
 // IntersectionObserver to reveal Recent Work heading on scroll
-$(document).ready(function() {
+$(document).ready(function () {
     const headerEl = document.querySelector('.recent-work-header');
     if (!headerEl) return;
 
-    const io = new IntersectionObserver(function(entries) {
+    const io = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 headerEl.classList.add('in-view');
@@ -44,4 +44,63 @@ $(document).ready(function() {
     }, { threshold: 0.18 });
 
     io.observe(headerEl);
+});
+
+// Counter Animation Logic
+$(document).ready(function () {
+    const counters = document.querySelectorAll('.counter-number');
+    const section = document.querySelector('.counter-section');
+
+    if (!section || counters.length === 0) return;
+
+    // Fetch dynamic counts
+    const updateDynamicCounts = () => {
+        // Partners count from partnersData (global from data.js)
+        if (typeof partnersData !== 'undefined') {
+            const partnersCounter = document.getElementById('partners-counter');
+            if (partnersCounter) {
+                partnersCounter.setAttribute('data-target', partnersData.length);
+            }
+        }
+
+        // Projects count from .recent-work elements
+        const projectCards = document.querySelectorAll('.recent-work.card');
+        const projectsCounter = document.getElementById('projects-counter');
+        if (projectsCounter) {
+            projectsCounter.setAttribute('data-target', projectCards.length);
+        }
+    };
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = 200; // Lower is faster
+                const inc = Math.max(1, Math.floor(target / speed));
+
+                if (count < target) {
+                    counter.innerText = Math.min(target, count + inc);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target + (target === 20 || target === partnersData.length ? '+' : '');
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Delay to ensure data.js and Isotope cards are loaded/counted
+    setTimeout(() => {
+        updateDynamicCounts();
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(section);
+            }
+        }, { threshold: 0.5 });
+
+        counterObserver.observe(section);
+    }, 500);
 });

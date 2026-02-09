@@ -287,6 +287,245 @@ nav.navbar {
   border-radius: 4px;
 }
 
+/* Counter Section Styles */
+.counter-section {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('../img/new.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.counter-item {
+  padding: 1rem;
+}
+
+.counter-number {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  color: #0d1293 !important;
+  /* Dark blue */
+  background: none !important;
+  -webkit-text-fill-color: #0d1293 !important;
+  margin-bottom: 0.5rem;
+}
+
+.counter-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0d1293;
+  text-transform: capitalize;
+}
+
+@media (max-width: 767px) {
+  .counter-number {
+    font-size: 2.5rem !important;
+  }
+
+  .counter-label {
+    font-size: 1rem;
+  }
+}
+
+/* Collab Section Styles */
+.collab-section {
+  background-image: url('../img/collab.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  /* Moves with page as requested */
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 3rem;
+  /* Spacing from footer */
+}
+
+.collab-text {
+  color: #333;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .collab-section {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+}
+
+/* AI Assistant Styles */
+#ai-assistant-container {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#ai-trigger-btn {
+  width: 60px;
+  height: 60px;
+  background-color: #0d1293;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(13, 18, 147, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#ai-trigger-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(13, 18, 147, 0.6);
+}
+
+#ai-trigger-btn img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+#ai-chat-window {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 320px;
+  height: 450px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform-origin: bottom left;
+  border: 1px solid rgba(13, 18, 147, 0.1);
+}
+
+.chat-closed {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chat-open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chat-header {
+  background-color: #0d1293;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-header img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.chat-header span {
+  font-weight: 600;
+  flex: 1;
+}
+
+#close-chat {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+#chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 85%;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.message.bot {
+  background-color: #f0f2ff;
+  color: #0d1293;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.message.user {
+  background-color: #0d1293;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-input-area {
+  padding: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 10px;
+}
+
+#chat-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 15px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+#chat-input:focus {
+  border-color: #0d1293;
+}
+
+#send-btn {
+  background-color: #0d1293;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+#send-btn:hover {
+  background-color: #5c6bc0;
+}
+
+@media (max-width: 500px) {
+  #ai-chat-window {
+    width: calc(100vw - 40px);
+    max-width: 320px;
+  }
+}
+
+/* Existing Recent Work Styles */
 /* Recent-work section background (uses arr.png) */
 #recent-work {
   background-image: url('../img/arr.png');
@@ -406,18 +645,18 @@ footer.bg-secondary {
   background: rgba(255, 255, 255, 0.4) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 1.5rem 2rem;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-  border-left: 6px solid #FFD24D !important;
-  box-shadow: 0 8px 32px rgba(13, 18, 147, 0.1);
-  max-width: 450px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #FFD24D !important;
+  box-shadow: 0 4px 15px rgba(13, 18, 147, 0.1);
+  max-width: 380px;
   transition: all 0.3s ease;
 }
 
 .footer-contact:hover {
   background: rgba(255, 255, 255, 0.5) !important;
-  box-shadow: 0 8px 32px rgba(13, 18, 147, 0.15);
+  box-shadow: 0 6px 20px rgba(13, 18, 147, 0.15);
   transform: translateY(-2px);
 }
 
@@ -436,22 +675,23 @@ footer h3.footer-title {
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   font-weight: 800 !important;
-  font-size: 1.25rem !important;
+  font-size: 1.15rem !important;
 }
 
 footer .footer-contact a,
-footer .footer-contact li {
+footer .footer-contact li,
+footer .footer-contact span {
   color: #0d1293 !important;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1rem;
   transition: all 200ms ease;
   display: flex;
   align-items: center;
 }
 
 footer .footer-contact i {
-  font-size: 2.2rem !important;
-  margin-right: 1.5rem;
+  font-size: 1.4rem !important;
+  margin-right: 0.8rem;
 }
 
 footer .footer-contact a:hover {

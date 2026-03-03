@@ -135,34 +135,150 @@ nav.navbar {
   border-color: #0d1293 !important;
 }
 
-/* Filter scroll container */
+/* Filter container - Centered and clean */
 .filter-scroll-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
+  justify-content: center !important;
+  gap: 50px;
+  /* Increased gap to 50px as requested */
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
+  width: 100%;
 }
 
-.filter-scroll {
+/* Ensure dropdown toggles look like filter buttons */
+#filterList .dropdown-toggle {
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  color: #0d1293 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px !important;
+  border: 1px solid #0d1293 !important;
+  border-radius: 50px !important;
+  /* Increased padding and min-width to prevent overlap and accommodate longer text */
+  padding: 0.6rem 2rem !important;
+  text-align: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  /* Ensure a consistent base width */
+  width: 100%;
+}
+
+/* Show a custom chevron to indicate it is a select */
+#filterList .dropdown-toggle::after {
+  display: inline-block !important;
+  content: "" !important;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 2px solid #0d1293;
+  border-bottom: 2px solid #0d1293;
+  transform: rotate(45deg);
+  margin-left: 10px;
+  margin-bottom: 2px;
+  transition: transform 0.3s ease;
+  border-top: none !important;
+  border-left: none !important;
+  flex-shrink: 0;
+  /* Don't shrink the arrow */
+}
+
+#filterList .dropdown-toggle.show::after {
+  transform: rotate(-135deg);
+  margin-bottom: -2px;
+}
+
+/* Keep background white even when open/active as requested */
+#filterList .dropdown-toggle.active,
+#filterList .dropdown-toggle.show,
+#filterList .dropdown-toggle:focus {
+  color: #0d1293 !important;
+  background-color: #ffffff !important;
+  border-color: #0d1293 !important;
+  box-shadow: 0 4px 15px rgba(13, 18, 147, 0.1) !important;
+}
+
+#filterList .dropdown-toggle:hover {
+  background-color: rgba(13, 18, 147, 0.05) !important;
+  color: #0d1293 !important;
+}
+
+/* Style dropdown menu items to use uppercase/theme */
+/* Style dropdown menu to be white/transparent with blue border as requested */
+#filterList .dropdown {
+  position: relative;
+}
+
+/* Style dropdown menu to match toggle width exactly and stay BELOW it */
+#filterList .dropdown-menu {
+  width: 100% !important;
+  min-width: 100% !important;
+  background-color: #ffffff !important;
+  border: 1px solid #0d1293 !important;
+  border-radius: 12px;
+  padding: 8px 0;
+  box-shadow: 0 10px 25px rgba(13, 18, 147, 0.15) !important;
+  margin-top: 8px !important;
+  /* Clearly separate from toggle */
+  z-index: 2000;
+  left: 0 !important;
+  transform: none !important;
+  position: absolute !important;
+  top: 100% !important;
+  /* Force it below the toggle */
+}
+
+#filterList .dropdown-item {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #0d1293 !important;
+  padding: 10px 15px;
+  background: transparent !important;
+  transition: all 0.2s ease;
+  text-align: center;
+  white-space: normal;
+  /* Allow wrapping if text is too long for the toggle width */
+  line-height: 1.2;
+}
+
+#filterList .dropdown-item:hover,
+#filterList .dropdown-item.active {
+  background-color: rgba(13, 18, 147, 0.05) !important;
+  color: #0d1293 !important;
+}
+
+/* Remove default focus/active blue backgrounds */
+#filterList .dropdown-item:active,
+#filterList .dropdown-item:focus {
+  background-color: rgba(13, 18, 147, 0.1) !important;
+  color: #0d1293 !important;
+}
+
+/* Remove default focus/active blue backgrounds */
+#filterList .dropdown-item:active,
+#filterList .dropdown-item:focus {
+  background-color: rgba(13, 18, 147, 0.1) !important;
+  color: #0d1293 !important;
+}
+
+
+#filterList {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  flex: 1;
+  flex-wrap: wrap;
+  /* Allow wrapping on small screens */
+  justify-content: center;
+  gap: 50px;
+  /* Increased gap to 50px as requested */
   padding: 10px 0;
   margin: 0;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
-.filter-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.filter-scroll li {
-  flex-shrink: 0;
+li.nav-item {
+  list-style: none;
 }
 
 /* Darken header logo/photo to a grayscale dark variant */
@@ -175,25 +291,9 @@ nav.navbar {
   filter: brightness(0.95);
 }
 
+/* Removed scroll buttons as they are no longer needed for a centered flex-wrap layout */
 .filter-scroll-btn {
-  background-color: #0d1293;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.filter-scroll-btn:hover {
-  background-color: #5c6bc0;
-  transform: scale(1.1);
+  display: none !important;
 }
 
 /* Service work cards with animated blue border */
@@ -1166,4 +1266,47 @@ footer .footer-contact a:hover {
   .nav.d-flex.justify-content-between {
     flex-wrap: nowrap;
   }
+}
+
+/* Counter Section Styling */
+.counter-section {
+  background-color: #f8f9fa;
+}
+
+.counter-icon i {
+  font-size: 3.5rem;
+  color: #0d1293 !important;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.counter-item {
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.counter-item:hover {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(13, 18, 147, 0.05);
+  transform: translateY(-5px);
+}
+
+.counter-item:hover .counter-icon i {
+  transform: scale(1.1);
+}
+
+.counter-number {
+  font-weight: 700 !important;
+  color: #0d1293 !important;
+  margin-top: 10px;
+}
+
+.counter-label {
+  font-weight: 600;
+  color: #0d1293;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-top: 5px;
 }

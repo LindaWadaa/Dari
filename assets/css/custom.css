@@ -1327,31 +1327,68 @@ footer .footer-contact a:hover {
   font-size: 0.85rem;
   letter-spacing: 1px;
   margin-top: 5px;
-}  
-/* Mobile Fixes */  
-@media (max-width: 991px) {  
-  #index_banner {  
-    background-size: cover !important;  
-    background-position: center !important;  
-    min-height: 80vh !important;  
-  }  
-  
-  #index_banner .carousel-inner,  
-  #index_banner .carousel-item,  
-  #index_banner .carousel-item .row {  
-    min-height: 80vh !important;  
-  }  
-  
-  .banner-content {  
-    padding-top: 15vh !important;  
-    padding-bottom: 5vh !important;  
-  }  
-} 
-  
-/* Recent Work Uniformity */  
+}
+
+/* Mobile Fixes */
+@media (max-width: 991px) {
+  #index_banner {
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 80vh !important;
+  }
+
+  #index_banner .carousel-inner,
+  #index_banner .carousel-item,
+  #index_banner .carousel-item .row {
+    min-height: 80vh !important;
+  }
+
+  .banner-content {
+    padding-top: 15vh !important;
+    padding-bottom: 5vh !important;
+  }
+}
+
+/* Recent Work Uniformity */
 .recent-work-img {
   width: 100% !important;
   height: 350px !important;
   object-fit: cover !important;
   object-position: center !important;
-} 
+}
+
+/* Digitali Link Reactive Styles */
+.digitali-link {
+  color: #e1306c !important;
+  /* Instagram brand color or use #ffd44d */
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.1em;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.digitali-link:hover {
+  color: #fd1d1d !important;
+  transform: scale(1.15) translateY(-3px) rotate(-2deg);
+  text-shadow: 0px 5px 15px rgba(225, 48, 108, 0.4);
+}
+
+.digitali-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #e1306c;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.digitali-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

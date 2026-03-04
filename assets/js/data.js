@@ -11,15 +11,18 @@ const partnersData = [
         page: 'https://www.instagram.com/mj.archi6/',
         image: './assets/img/log1.jpg'
     },
+
     {
         category: 'graphic', // Architects
-        name: 'Chamsassil Belgl',
-        contact: '21235254',
-        address: 'Tunis',
-        page: '',
-        image: './assets/img/services-01.jpg'
+        name: 'ARCHIDECO',
+        contact: '20019548',
+        address: 'Nabeul',
+        page: 'https://www.instagram.com/ab_archinterieur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+        image: './assets/img/archideco.jpg'
     },
+
     // Add more partners here following the same structure
+    /*
     {
         category: 'conseil', // Ingénieur Conseil
         name: 'Hedi Ayed Lakhal',
@@ -43,31 +46,39 @@ const partnersData = [
         address: 'Nabeul',
         page: '',
         image: './assets/img/services-02.jpg'
-    },
-    {
-        category: 'topographe', // Topographe
-        name: 'Mohamedexpert',
-        contact: '97385119',
-        address: 'Nabeul',
-        page: '',
-        image: './assets/img/services-01.jpg'
-    },
-    {
-        category: 'topographe', // Topographe
-        name: 'BEAT.GEO OFFIC',
-        contact: '58886672',
-        address: 'Nabeul',
-        page: '',
-        image: './assets/img/services-01.jpg'
-    },
-    {
-        category: 'topographe', // Topographe
-        name: 'GEO3D',
-        contact: '22414111',
-        address: 'Nabeul',
-        page: '',
-        image: './assets/img/services-01.jpg'
-    },
+    },*/
+
+
+    /*
+        {
+            category: 'topographe', // Topographe
+            name: 'Mohamedexpert',
+            contact: '97385119',
+            address: 'Nabeul',
+            page: '',
+            image: './assets/img/services-01.jpg'
+        },
+        {
+            category: 'topographe', // Topographe
+            name: 'BEAT.GEO OFFIC',
+            contact: '58886672',
+            address: 'Nabeul',
+            page: '',
+            image: './assets/img/services-01.jpg'
+        },
+        {
+            category: 'topographe', // Topographe
+            name: 'GEO3D',
+            contact: '22414111',
+            address: 'Nabeul',
+            page: '',
+            image: './assets/img/services-01.jpg'
+        },*/
+
+
+
+
+    /*
     {
         category: 'constructeur', // Constructeur
         name: 'N@K de baimen',
@@ -99,7 +110,13 @@ const partnersData = [
         address: 'Nabeul',
         page: '',
         image: './assets/img/services-03.jpg'
-    },
+    },*/
+
+
+
+
+
+    /*
     {
         category: 'beton', // Béton
         name: 'CAP BETON',
@@ -139,7 +156,12 @@ const partnersData = [
         address: 'Grombalia',
         page: 'https://www.facebook.com/profile.php?id=100063499676591',
         image: './assets/img/services-04.jpg'
-    },
+    },*/
+
+
+
+
+    /*
     {
         category: 'plombier', // Plombier
         name: 'Mehdi Ghannay',
@@ -179,7 +201,12 @@ const partnersData = [
         address: 'Nabeul',
         page: '',
         image: './assets/img/services-05.jpg'
-    },
+    },*/
+
+
+
+
+    /*
     {
         category: 'electricien', // Electricien
         name: 'Hafath',
@@ -211,7 +238,14 @@ const partnersData = [
         address: 'Nabeul',
         page: '',
         image: './assets/img/services-04.jpg'
-    },
+    },*/
+
+
+
+
+
+
+    /*
     {
         category: 'jardinier', // Jardinier
         name: 'Cap Vert',
@@ -219,7 +253,12 @@ const partnersData = [
         address: 'Nabeul',
         page: 'https://capvert.com.tn/',
         image: './assets/img/services-08.jpg'
-    },
+    },*/
+
+
+
+
+    /*
     {
         category: 'marbre', // Marbre
         name: 'Majidi',
@@ -227,5 +266,134 @@ const partnersData = [
         address: 'Nabeul',
         page: '',
         image: './assets/img/services-01.jpg'
-    }
+    }*/
+
+
+
+
+
+
+
+
+    /*
+        {
+            category: 'agent', // Agent immobilier
+            name: 'Tecnocasa nabeul',
+            contact: '29085050',
+            address: 'Nabeul',
+            page: 'Sw Business Sol',
+            image: './assets/img/services-01.jpg'
+        },
+        {
+            category: 'agent', // Agent immobilier
+            name: 'Tecnocasa AFH',
+            contact: '29676662',
+            address: 'Nabeul',
+            page: '(11) Facebook',
+            image: './assets/img/services-01.jpg'
+        },*/
+    {
+        category: 'agent', // Agent immobilier
+        name: 'Cactus',
+        contact: '29074198',
+        address: 'Nabeul',
+        page: 'https://www.cactusimmobilier.com/',
+        image: './assets/img/cactus.svg'
+    },/*
+    {
+        category: 'agent', // Agent immobilier
+        name: 'Metis immo',
+        contact: '52448281',
+        address: 'Nabeul',
+        page: 'Metis Immo Agence',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'CENTURY 21',
+        contact: '26577000',
+        address: 'Nabeul',
+        page: 'https://century21',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'CITY CASA',
+        contact: '72236801',
+        address: 'Nabeul',
+        page: '(13) Facebook',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'la casa nabeul',
+        contact: '24 524 200',
+        address: 'Nabeul',
+        page: '(13) Facebook',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'Azur Immobiliére',
+        contact: '24323342',
+        address: 'Nabeul',
+        page: 'Azur immobiliere',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'ADAM Immobilière',
+        contact: '24388922',
+        address: 'Nabeul',
+        page: 'ADAM Immobilière',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'IMMOTEAM',
+        contact: '29256234',
+        address: 'Nabeul',
+        page: 'IMMOTEAM : Ag',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'Néapolis Immobilier',
+        contact: '24724304',
+        address: 'Nabeul',
+        page: 'Néapolis Immobi',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'Tunizimmobiliere',
+        contact: '72272054',
+        address: 'Nabeul',
+        page: '',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'Extra',
+        contact: '22808100',
+        address: 'Nabeul',
+        page: '',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'IMMO 3.0',
+        contact: '90777575',
+        address: 'Nabeul',
+        page: '',
+        image: './assets/img/services-01.jpg'
+    },
+    {
+        category: 'agent', // Agent immobilier
+        name: 'MA villa',
+        contact: '72236442',
+        address: 'Nabeul',
+        page: 'ma villa immobiliere | immobiliere',
+        image: './assets/img/services-01.jpg'
+    }*/
 ];

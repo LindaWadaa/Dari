@@ -18,10 +18,22 @@ https://templatemo.com/tm-561-purple-buzz
   background-color: #0d1293 !important;
 }
 
-/* Move banner content up by 50px */
+/* Hero content alignment */
 .banner-content {
   padding-top: 0 !important;
-  margin-top: -10px !important;
+  margin-top: 0 !important;
+}
+
+#index_banner .carousel-inner {
+  min-height: 80vh;
+}
+
+#index_banner .carousel-item {
+  min-height: 80vh;
+}
+
+#index_banner .carousel-item .row {
+  min-height: 80vh;
 }
 
 /* Change filter button border to lighter blue */
@@ -841,6 +853,12 @@ footer .footer-contact a:hover {
     margin-top: 0 !important;
   }
 
+  #index_banner .carousel-inner,
+  #index_banner .carousel-item,
+  #index_banner .carousel-item .row {
+    min-height: 65vh;
+  }
+
   .banner-heading {
     font-size: 1.75rem !important;
   }
@@ -1309,4 +1327,31 @@ footer .footer-contact a:hover {
   font-size: 0.85rem;
   letter-spacing: 1px;
   margin-top: 5px;
-}
+}  
+/* Mobile Fixes */  
+@media (max-width: 991px) {  
+  #index_banner {  
+    background-size: cover !important;  
+    background-position: center !important;  
+    min-height: 80vh !important;  
+  }  
+  
+  #index_banner .carousel-inner,  
+  #index_banner .carousel-item,  
+  #index_banner .carousel-item .row {  
+    min-height: 80vh !important;  
+  }  
+  
+  .banner-content {  
+    padding-top: 15vh !important;  
+    padding-bottom: 5vh !important;  
+  }  
+} 
+  
+/* Recent Work Uniformity */  
+.recent-work-img {
+  width: 100% !important;
+  height: 350px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+} 

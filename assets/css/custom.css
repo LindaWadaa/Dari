@@ -37,8 +37,10 @@ https://templatemo.com/tm-561-purple-buzz
 
 #index_banner {
   background-size: cover !important;
-  background-position: center center !important;
+  background-position: center bottom !important;
   background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  /* Premium parallax effect on desktop */
   min-height: 90vh !important;
   width: 100% !important;
   display: flex;
@@ -89,8 +91,10 @@ https://templatemo.com/tm-561-purple-buzz
   }
 
   #index_banner {
-    background-position: center center !important;
+    background-position: center bottom !important;
     background-size: cover !important;
+    background-attachment: scroll !important;
+    /* Fixed is buggy on mobile */
   }
 
   /* Contenu centré et lisible */

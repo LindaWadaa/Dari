@@ -24,38 +24,134 @@ https://templatemo.com/tm-561-purple-buzz
   margin-top: 0 !important;
 }
 
+/* ==============================
+   HERO BANNER - Image plein écran
+   ============================== */
+
+/* Le wrapper couvre toute la hauteur visible */
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+}
+
 #index_banner {
-  background-size: 100% 100% !important;
+  background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
+  min-height: 90vh !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
 }
 
 #index_banner .carousel-inner {
-  min-height: 80vh;
+  min-height: 90vh !important;
+  flex: 1;
 }
 
 #index_banner .carousel-item {
-  min-height: 80vh;
+  min-height: 90vh !important;
 }
 
 #index_banner .carousel-item .row {
-  min-height: 80vh;
+  min-height: 90vh !important;
+  align-items: center;
 }
 
-@media (max-width: 767px) {
-  #index_banner {
-    min-height: 60vh !important;
-  }
+/* TABLET (≤ 992px) */
+@media (max-width: 992px) {
 
+  .banner-wrapper,
+  #index_banner,
   #index_banner .carousel-inner,
   #index_banner .carousel-item,
   #index_banner .carousel-item .row {
-    min-height: 60vh !important;
+    min-height: 80vh !important;
   }
 
   .banner-heading {
-    font-size: 2.5rem !important;
-    /* Smaller on mobile to fit nicely */
+    font-size: 2.2rem !important;
+  }
+}
+
+/* MOBILE PHONE (≤ 767px) */
+@media (max-width: 767px) {
+
+  /* Image couvre bien toute la section */
+  .banner-wrapper,
+  #index_banner,
+  #index_banner .carousel-inner,
+  #index_banner .carousel-item,
+  #index_banner .carousel-item .row {
+    min-height: 100svh !important;
+    min-height: 100vh !important;
+  }
+
+  #index_banner {
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  /* Contenu centré et lisible */
+  .banner-content {
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Force offset Bootstrap à 0 sur mobile */
+  .banner-content.offset-lg-3 {
+    margin-left: 0 !important;
+  }
+
+  .banner-heading {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word;
+  }
+
+  .banner-body {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .banner-button {
+    width: 100% !important;
+    max-width: 260px;
+    display: block;
+    margin: 0 auto !important;
+  }
+}
+
+/* PETIT MOBILE (≤ 430px) */
+@media (max-width: 430px) {
+
+  .banner-wrapper,
+  #index_banner,
+  #index_banner .carousel-inner,
+  #index_banner .carousel-item,
+  #index_banner .carousel-item .row {
+    min-height: 100svh !important;
+    min-height: 100vh !important;
+  }
+
+  .banner-content {
+    padding-top: 5rem !important;
+  }
+
+  .banner-heading {
+    font-size: 1.45rem !important;
+  }
+
+  .banner-body {
+    font-size: 0.82rem !important;
   }
 }
 
@@ -1376,25 +1472,8 @@ footer .footer-contact a:hover {
   margin-top: 5px;
 }
 
-/* Mobile Fixes */
-@media (max-width: 991px) {
-  #index_banner {
-    background-size: cover !important;
-    background-position: center !important;
-    min-height: 80vh !important;
-  }
 
-  #index_banner .carousel-inner,
-  #index_banner .carousel-item,
-  #index_banner .carousel-item .row {
-    min-height: 80vh !important;
-  }
 
-  .banner-content {
-    padding-top: 15vh !important;
-    padding-bottom: 5vh !important;
-  }
-}
 
 /* Recent Work Uniformity */
 .recent-work-img {
@@ -1447,27 +1526,7 @@ footer .footer-contact a:hover {
 
 @media (max-width: 767px) {
 
-  /* Banner adjustments */
-  #index_banner {
-    min-height: 50vh !important;
-    background-size: cover !important;
-  }
-
-  .banner-content {
-    padding: 2rem 15px !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
-  .banner-heading {
-    font-size: 1.6rem !important;
-    line-height: 1.3 !important;
-  }
-
-  .banner-body {
-    font-size: 0.85rem !important;
-  }
+  /* Banner — géré dans le bloc HERO BANNER en haut du fichier */
 
   /* Services Section Fixes (First Screenshot) */
   #services-section .h2 {

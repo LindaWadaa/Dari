@@ -990,12 +990,20 @@ footer .footer-contact a:hover {
   #index_banner .carousel-inner,
   #index_banner .carousel-item,
   #index_banner .carousel-item .row {
-    min-height: 100vh !important;
+    min-height: calc(100vh - 70px) !important;
+    min-height: calc(100dvh - 70px) !important;
   }
 
   #index_banner {
+    background-image: url('../img/covv.png') !important;
     background-size: cover !important;
-    background-position: center center !important;
+    background-position: center bottom !important;
+    /* On remonte un peu l'image pour mieux voir le bas sur mobile */
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .banner-content {

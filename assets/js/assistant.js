@@ -5,12 +5,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Knowledge Base
     const dariKnowledge = {
-        general: "Dari est une entreprise spécialisée dans la construction, la rénovation et l'aménagement de l'habitat. Nous regroupons tous les métiers du bâtiment (architectes, ingénieurs, maçons, etc.) pour gérer votre projet de A à Z.",
+        general: "Dari est une entreprise spécialisée dans la construction, la rénovation et l'aménagement de l'habitat en Tunisie. Nous gérons vos projets de A à Z avec expertise.",
         services: "Nous offrons des services d'architecture, ingénierie, gros œuvre, plomberie, électricité, menuiserie, peinture décorative, climatisation, staff et aménagement paysager.",
         contact: "Vous pouvez nous contacter au +216 96 255 343 ou par email à dari4communication@gmail.com. Nous sommes situés à Béni Khiar, Nabeul.",
         projets: "Nous réalisons des villas modernes, des rénovations d'appartements, des installations solaires et des extensions de maisons. Allez voir notre section 'Nos Réalisations' !",
-        equipe: "Dari rassemble une équipe intégrée d'experts pour éviter la gestion de multiples intervenants et garantir un résultat cohérent.",
-        devis: "Vous pouvez demander un devis en cliquant sur le bouton 'Demande de devis' dans la section collaboration ou en nous contactant directement."
+        equipe: "Dari rassemble une équipe intégrée d'experts pour garantir un résultat cohérent et de haute qualité.",
+        devis: "Vous pouvez demander un devis en cliquant sur le bouton 'Demande de devis' dans la section collaboration ou en nous contactant directement.",
+        ceo: "Notre CEO est **Hadi Slama**, un expert passionné par l'innovation dans le secteur du bâtiment en Tunisie."
     };
 
     // UI Elements
@@ -47,8 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('send-btn');
     const chatInput = document.getElementById('chat-input');
     const messagesContainer = document.getElementById('chat-messages');
-
-    // Reset chat on load (already handled by not using localStorage)
 
     // Toggle Chat
     triggerBtn.addEventListener('click', () => {
@@ -94,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (query.includes('qui') || query.includes('dari') || query.includes('entreprise')) return dariKnowledge.general;
         if (query.includes('équipe') || query.includes('expert') || query.includes('membre')) return dariKnowledge.equipe;
         if (query.includes('devis') || query.includes('prix') || query.includes('combien')) return dariKnowledge.devis;
+        if (query.includes('ceo') || query.includes('directeur') || query.includes('hadi') || query.includes('slama')) return dariKnowledge.ceo;
         if (query.includes('bonjour') || query.includes('salut')) return "Bonjour ! Je suis l'assistant virtuel de Dari. Posez-moi une question sur nos services de construction et rénovation.";
 
         return "Désolé, je n'ai pas compris. Vous pouvez me poser des questions sur nos services, nos projets ou comment nous contacter !";

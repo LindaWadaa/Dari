@@ -242,12 +242,12 @@ nav.navbar {
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 .services-hero-section {
   background-image: url('../img/nn.png') !important;
-  background-size: calc(100% + 10px) 100% !important;
+  background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   padding: 4.5rem 15px !important;
@@ -256,6 +256,7 @@ nav.navbar {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 220px;
 }
 
 @media (max-width: 767px) {
@@ -263,9 +264,10 @@ nav.navbar {
   .service-bg-section,
   .services-hero-section {
     background-attachment: scroll !important;
-    padding: 3.5rem 10px !important;
-    min-height: auto;
-    background-size: calc(100% + 10px) 100% !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    padding: 3rem 15px !important;
+    min-height: 180px;
   }
 }
 
@@ -547,7 +549,7 @@ li.nav-item {
   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('../img/new.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 .counter-item {
@@ -844,13 +846,13 @@ footer .h3 {
   text-shadow: none !important;
 }
 
-/* Footer background styling - natural display */
+/* Footer background styling - covers full width on all devices */
 footer.bg-secondary {
   background-color: #ffffff !important;
   background-image: url('../img/footer.png') !important;
-  background-size: 100% auto;
-  background-position: center top;
-  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   position: relative;
   background-attachment: scroll;
   min-height: auto;
@@ -887,8 +889,9 @@ footer.bg-secondary {
 
 /* Map container */
 .footer-map {
-  height: 140px;
-  max-width: 85%;
+  height: 160px;
+  width: 100%;
+  max-width: 100%;
   border-radius: 8px;
   overflow: hidden;
   margin-top: 0;
@@ -953,368 +956,337 @@ footer .footer-contact a:hover {
   color: #5c6bc0 !important;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN - MOBILE FIRST
-   ======================================== */
-
-/* TABLET - 768px and below */
+/* =====================================================
+   RESPONSIVE DESIGN — PHONE (≤ 767px)
+   ===================================================== */
 @media (max-width: 767px) {
 
-  /* Header adjustments */
+  /* === NAVBAR === */
   #main_nav {
     position: relative !important;
-    background-color: rgba(255, 255, 255, 0.95) !important;
-  }
-
-  #main_nav.transparent {
-    background-color: rgba(255, 255, 255, 0.98) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  }
-
-  /* Hamburger menu - Blue and visible */
-  .navbar-toggler {
-    border: 2px solid #0d1293 !important;
-    background-color: rgba(13, 18, 147, 0.05) !important;
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230d1293' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-color: rgba(255, 255, 255, 0.97) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    padding: 0.4rem 0 !important;
   }
 
   #main_nav .navbar-brand img {
-    max-height: 60px;
+    max-height: 55px;
   }
 
   #main_nav .nav-link {
-    font-size: 0.85rem !important;
-    padding: 0.5rem 0.75rem !important;
+    font-size: 0.82rem !important;
+    padding: 0.45rem 0.6rem !important;
   }
 
-  /* Banner adjustments */
-  .banner-content {
-    padding-top: 2rem !important;
-    margin-top: 0 !important;
+  .navbar-toggler {
+    border: 2px solid #0d1293 !important;
+    background-color: rgba(13, 18, 147, 0.06) !important;
+    padding: 0.3rem 0.55rem !important;
   }
 
+  /* === HERO BANNER === */
+  .banner-wrapper,
+  #index_banner,
   #index_banner .carousel-inner,
   #index_banner .carousel-item,
   #index_banner .carousel-item .row {
-    min-height: 65vh;
+    min-height: 100vh !important;
+  }
+
+  #index_banner {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .banner-content {
+    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .banner-heading {
     font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word;
   }
 
   .banner-body {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.2rem !important;
   }
 
-  /* Service section */
-  .hero-title {
-    font-size: 1.6rem !important;
+  .banner-button {
+    display: inline-block;
+    width: auto !important;
+    min-width: 180px;
   }
 
-  .hero-sub {
-    font-size: 0.95rem !important;
+  /* === SERVICE SECTION (fond serrr.png) === */
+  .service-bg-section {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .service-header {
+    display: none !important;
+  }
+
+  .service-heading {
+    width: 100% !important;
+    text-align: center !important;
+    float: none !important;
+  }
+
+  .service-heading .h3 {
+    font-size: 1.4rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .service-footer {
+    width: 100% !important;
+    margin-left: 0 !important;
+    text-align: center !important;
+    font-size: 0.88rem !important;
+    padding: 0 1rem 1.5rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .service-wrapper .h2 {
+    font-size: 1.5rem !important;
+    padding: 2rem 0 1.5rem !important;
+  }
+
+  /* === TOUS LES MÉTIERS (fond nn.png) === */
+  .services-hero-section {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+    padding: 2.5rem 1rem !important;
+    min-height: 200px;
+  }
+
+  .services-hero-section h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .services-hero-section p {
+    font-size: 0.85rem !important;
+  }
+
+  /* === FILTRES === */
+  #filterList {
+    gap: 12px !important;
+    padding: 0 10px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  #filterList .nav-item {
+    width: calc(50% - 12px) !important;
+    margin: 0 !important;
+  }
+
+  #filterList .dropdown-toggle {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 0.55rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    height: auto !important;
+    white-space: normal !important;
+    line-height: 1.1 !important;
+    border-radius: 30px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #filterList .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin-top: 5px !important;
+    z-index: 1000 !important;
+    border-radius: 10px !important;
   }
 
   .service-tag {
-    padding: 2rem 1rem !important;
+    padding: 1.5rem 0.5rem !important;
   }
 
   .filter-scroll-container {
     gap: 8px;
   }
 
-  .filter-btn {
-    font-size: 0.75rem !important;
-    padding: 0.4rem 0.8rem !important;
-    white-space: nowrap;
-  }
-
-  .filter-scroll-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-  }
-
-  /* Cards adjustments */
+  /* === PARTNER CARDS === */
   .service-work.card {
-    margin: 0 1rem !important;
+    margin: 0 !important;
+    margin-bottom: 0.8rem !important;
   }
 
-  /* Footer adjustments */
+  /* === COUNTER SECTION === */
+  .counter-section {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+    padding: 2.5rem 1rem !important;
+  }
+
+  .counter-number {
+    font-size: 2.5rem !important;
+  }
+
+  .counter-label {
+    font-size: 0.95rem;
+  }
+
+  .counter-icon i {
+    font-size: 2.8rem;
+  }
+
+  /* === NOS RÉALISATIONS === */
+  #recent-work {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+    padding: 2rem 0 !important;
+  }
+
+  .hero-title {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem !important;
+  }
+
+  .recent-work-img {
+    height: 220px !important;
+  }
+
+  .recent-work-header {
+    padding: 1rem !important;
+  }
+
+  /* === COLLAB SECTION === */
+  .collab-section {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+    min-height: auto;
+    padding: 2.5rem 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .collab-section .btn {
+    width: 100% !important;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  .collab-text {
+    font-size: 0.95rem !important;
+  }
+
+  /* === FOOTER === */
   footer.bg-secondary {
     background-size: cover !important;
     background-position: center center !important;
-  }
-
-  .footer-contact {
-    max-width: 100%;
-    margin: 1rem auto;
+    background-attachment: scroll !important;
+    padding: 2rem 1rem !important;
   }
 
   .footer-map {
+    width: 100% !important;
+    max-width: 100% !important;
     height: 200px;
     margin-bottom: 1.5rem;
+    border-radius: 8px;
   }
 
-  footer h3.footer-title {
-    font-size: 1.1rem !important;
+  .footer-contact {
+    max-width: 100% !important;
+    width: 100%;
+    margin: 0.5rem 0 1rem 0 !important;
+    padding: 0.8rem 1rem !important;
   }
 
   .footer-icons {
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 8px;
   }
 
-  .footer-icons .list-inline-item a {
-    width: 40px;
-    height: 40px;
+  footer h3.footer-title {
+    font-size: 1rem !important;
   }
 
-  .footer-icons .list-inline-item i {
-    font-size: 1rem;
+  footer .col-lg-6 {
+    margin-bottom: 1.5rem;
   }
 
+  footer .col-lg-6:last-child {
+    margin-bottom: 0;
+  }
+
+  /* === TYPOGRAPHY === */
   section h1,
   section h2,
   section h3,
   .h1,
   .h2,
   .h3 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+  }
+
+  /* === GENERAL === */
+  body {
+    overflow-x: hidden;
+  }
+
+  .container-fluid {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
 }
 
-/* MOBILE - 576px and below */
-@media (max-width: 575px) {
-
-  /* Body padding */
-  body {
-    font-size: 14px;
-  }
-
-  /* Header - fully responsive mobile menu */
-  #main_nav {
-    padding: 0.5rem 0 !important;
-    position: sticky !important;
-    top: 0;
-  }
-
-  #main_nav.transparent {
-    background-color: rgba(255, 255, 255, 0.99) !important;
-  }
-
-  /* Hamburger menu - Blue and prominent on mobile */
-  .navbar-toggler {
-    border: 2px solid #0d1293 !important;
-    background-color: rgba(13, 18, 147, 0.08) !important;
-    padding: 0.35rem 0.65rem !important;
-  }
-
-  .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.25rem rgba(13, 18, 147, 0.25) !important;
-    border-color: #FFD24D !important;
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230d1293' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-  }
-
-  #main_nav .navbar-brand img {
-    max-height: 50px;
-  }
-
-  #main_nav .container {
-    padding: 0 0.75rem;
-  }
-
-  #main_nav .nav-link {
-    font-size: 0.8rem !important;
-    padding: 0.5rem 0.65rem !important;
-  }
-
-  #main_nav .nav-item {
-    margin: 0.1rem 0.1rem;
-  }
-
-  /* Banner hero section */
-  .banner-wrapper.bg-light {
-    padding: 0 !important;
-  }
-
-  .banner-content {
-    padding-top: 1.5rem !important;
-    margin-top: 0 !important;
-    offset: 0 !important;
-  }
-
-  .banner-content.col-lg-8 {
-    width: 100%;
-    margin-left: 0 !important;
-    padding: 0 1rem !important;
-  }
-
-  .banner-content.col-8 {
-    width: 100% !important;
-    offset: 0 !important;
-  }
-
+/* =====================================================
+   VERY SMALL PHONES (≤ 430px)
+   ===================================================== */
+@media (max-width: 430px) {
   .banner-heading {
-    font-size: 1.4rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 1.45rem !important;
   }
 
   .banner-body {
-    font-size: 0.85rem !important;
-    line-height: 1.4;
+    font-size: 0.82rem !important;
   }
 
-  .banner-button {
-    font-size: 0.85rem;
-    padding: 0.5rem 1.5rem !important;
+  #filterList .nav-item {
+    width: calc(50% - 8px) !important;
   }
 
-  /* Service section */
-  .service-wrapper {
-    padding: 1.5rem 0 !important;
-  }
-
-  .service-bg-section {
-    background-attachment: scroll !important;
-  }
-
-  .service-header {
-    display: none;
-  }
-
-  .service-heading {
-    margin-bottom: 1rem;
-  }
-
-  .service-heading h2 {
-    font-size: 1.2rem !important;
-  }
-
-  .service-footer {
-    font-size: 0.85rem !important;
-    margin: 0 !important;
-    padding: 0 1rem !important;
-  }
-
-  .service-tag {
-    padding: 1.5rem 0 !important;
-  }
-
-  .filter-scroll-container {
-    padding: 0 1rem;
-    gap: 4px;
-  }
-
-  .filter-scroll {
-    flex: 1;
-    padding: 0;
-  }
-
-  .filter-btn {
-    font-size: 0.7rem !important;
-    padding: 0.35rem 0.65rem !important;
-    white-space: nowrap;
-    margin: 0 0.25rem !important;
-  }
-
-  .filter-scroll-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
-  /* Recent work title */
-  .recent-work-header {
-    text-align: center;
-    padding: 1.5rem 1rem;
+  #filterList .dropdown-toggle {
+    font-size: 0.68rem !important;
+    padding: 0.45rem 0.3rem !important;
   }
 
   .hero-title {
     font-size: 1.3rem !important;
-    margin-bottom: 0.8rem;
   }
 
-  .hero-title::after {
-    width: 50px;
-    height: 4px;
-    margin: 0.6rem auto 0;
-  }
-
-  .hero-sub {
-    font-size: 0.85rem !important;
-  }
-
-  /* Project cards section */
-  #recent-work {
-    padding: 1.5rem 0 !important;
-    background-size: cover;
-  }
-
-  .projects {
-    padding: 0 !important;
-  }
-
-  .service-work.card {
-    margin: 0 !important;
-    margin-bottom: 1rem !important;
-  }
-
-  .service-work-content {
-    padding: 1rem !important;
-  }
-
-  /* Footer */
-  footer.bg-secondary {
-    background-size: cover !important;
-    background-position: center center !important;
-    padding: 2.5rem 1rem !important;
-  }
-
-  .footer-contact {
-    max-width: 100%;
-    padding: 1rem !important;
-    margin-bottom: 1rem !important;
-  }
-
-  .footer-contact p,
-  .footer-contact li {
-    font-size: 0.85rem;
-  }
-
-  .footer-map {
-    height: 180px;
-    margin: 0 auto 1.5rem auto;
-  }
-
-  footer h3 {
-    font-size: 1rem !important;
-  }
-
-  footer h3.footer-title {
-    font-size: 1rem !important;
-    margin-bottom: 0.8rem;
-  }
-
-  .footer-icons {
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .footer-icons .list-inline-item a {
-    width: 38px;
-    height: 38px;
-  }
-
-  .footer-icons .list-inline-item i {
-    font-size: 0.9rem;
+  .counter-number {
+    font-size: 2.2rem !important;
   }
 
   section h1,
@@ -1323,41 +1295,28 @@ footer .footer-contact a:hover {
   .h1,
   .h2,
   .h3 {
-    font-size: 1.2rem;
-  }
-
-  /* General section padding */
-  section {
-    padding: 1.5rem 1rem !important;
-  }
-
-  .container-fluid {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    font-size: 1.15rem;
   }
 }
 
-/* EXTRA SMALL - 360px and below (very small phones) */
+/* =====================================================
+   EXTRA SMALL (≤ 360px)
+   ===================================================== */
 @media (max-width: 360px) {
   .banner-heading {
     font-size: 1.2rem !important;
   }
 
   .banner-body {
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  #filterList .nav-item {
+    width: 100% !important;
   }
 
   .hero-title {
     font-size: 1.1rem !important;
-  }
-
-  .filter-btn {
-    font-size: 0.65rem !important;
-    padding: 0.3rem 0.5rem !important;
-  }
-
-  .footer-contact {
-    padding: 0.8rem !important;
   }
 
   section h1,

@@ -270,13 +270,21 @@ nav.navbar {
 
 @media (max-width: 767px) {
 
-  .service-bg-section,
-  .services-hero-section {
+  .service-bg-section {
     background-attachment: scroll !important;
     background-size: cover !important;
     background-position: center center !important;
     padding: 3rem 15px !important;
     min-height: 180px;
+  }
+
+  .services-hero-section {
+    background-attachment: scroll !important;
+    background-size: contain !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    padding: 3rem 15px !important;
+    min-height: 220px;
   }
 }
 
@@ -1085,11 +1093,12 @@ footer .footer-contact a:hover {
 
   /* === TOUS LES MÉTIERS (fond nn.png) === */
   .services-hero-section {
-    background-size: cover !important;
-    background-position: center !important;
+    background-size: contain !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
     background-attachment: scroll !important;
     padding: 2.5rem 1rem !important;
-    min-height: 200px;
+    min-height: 240px;
   }
 
   .services-hero-section h3 {
@@ -1739,7 +1748,7 @@ footer .footer-contact a:hover {
 
   /* Footer background: same right anchor so helmet remains visible on phone. */
   footer.bg-secondary {
-    background-position: calc(100% + 50px) bottom !important;
+    background-position: calc(100% + 70px) bottom !important;
     background-size: cover !important;
   }
 

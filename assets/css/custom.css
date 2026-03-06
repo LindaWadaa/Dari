@@ -1626,21 +1626,62 @@ footer .footer-contact a:hover {
 #index_banner .banner-content {
   background: transparent !important;
   border-radius: 0 !important;
-  padding: inherit;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
 
-/* Paragraphes noirs avec fond blanc flou, sans toucher au reste du header */
+#index_banner .banner-content .banner-heading,
 #index_banner .banner-content .banner-body {
-  color: #111111 !important;
-  background: rgba(255, 255, 255, 0.58);
-  border-radius: 12px;
-  padding: 0.75rem 1rem !important;
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
   display: inline-block;
   max-width: 100%;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#index_banner .banner-content .banner-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.62);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  pointer-events: none;
+}
+
+#index_banner .banner-content .banner-heading {
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+#index_banner .banner-content .banner-body {
+  color: #111111 !important;
+  border-radius: 12px;
+  padding: 0.7rem 0.95rem !important;
+}
+
+/* Restore yellow underline under hero titles */
+#index_banner .banner-content .banner-heading.typo-space-line {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+#index_banner .banner-content .banner-heading.typo-space-line::after {
+  content: "";
+  position: absolute;
+  display: block !important;
+  left: 0;
+  bottom: -14px;
+  width: 120px;
+  height: 0;
+  padding-top: 0 !important;
+  border-bottom: 5px solid #e0a903;
+  z-index: 3;
 }
 
 @media (max-width: 767px) {
@@ -1659,21 +1700,39 @@ footer .footer-contact a:hover {
 
   /* Header hero background: push image to the right with a small right margin. */
   #index_banner {
-    background-position: calc(100% - 14px) center !important;
+    background-position: calc(100% + 20px) center !important;
     background-size: cover !important;
   }
 
+  #index_banner .banner-content .banner-heading,
   #index_banner .banner-content .banner-body {
-    background: rgba(255, 255, 255, 0.72);
     border-radius: 10px;
-    padding: 0.65rem 0.85rem !important;
+    padding: 0.75rem 0.85rem !important;
+  }
+
+  #index_banner .banner-content .banner-body::before {
+    background: rgba(255, 255, 255, 0.74);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
   }
 
+  /* Mobile only: move titles up and keep clear gap from paragraph */
+  #index_banner .banner-content .banner-heading {
+    margin-top: -20px !important;
+    margin-bottom: 20px !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  #index_banner .banner-content .banner-heading.typo-space-line::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+  }
+
   /* Footer background: same right anchor so helmet remains visible on phone. */
   footer.bg-secondary {
-    background-position: calc(100% - 14px) bottom !important;
+    background-position: calc(100% + 20px) bottom !important;
     background-size: cover !important;
   }
 
@@ -1686,4 +1745,11 @@ footer .footer-contact a:hover {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+}
+
+#index_banner .banner-content .banner-heading {
+  background: linear-gradient(90deg, var(--bs-primary) 0%, #FFD24D 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }

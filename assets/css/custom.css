@@ -28,42 +28,39 @@ https://templatemo.com/tm-561-purple-buzz
    HERO BANNER - Image plein écran
    ============================== */
 
-/* Le wrapper contient l’image et force la couverture totale */
 .banner-wrapper {
   position: relative;
   width: 100%;
-  min-height: 100vh !important;
-  background: #f8f9fa url('../img/covv.png') no-repeat center center / cover !important;
-  background-attachment: scroll !important;
+  min-height: 100vh;
   overflow: hidden;
-  display: flex !important;
-  flex-direction: column !important;
 }
 
 #index_banner {
-  background: transparent !important;
-  /* On enlève le fond ici */
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  /* Fixed removed for better cross-device consistency */
   min-height: 100vh !important;
   width: 100% !important;
-  padding-top: 0 !important;
-  margin: 0 !important;
   display: flex !important;
+  flex-direction: column;
+}
+
+#index_banner .carousel-inner {
+  min-height: 100vh !important;
   flex: 1;
 }
 
 #index_banner .carousel,
 #index_banner .carousel-inner,
 #index_banner .carousel-item {
-  height: 100% !important;
   min-height: 100vh !important;
-  display: flex !important;
-  align-items: center !important;
 }
 
 #index_banner .carousel-item .row {
-  width: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
+  min-height: 100vh !important;
+  align-items: center;
 }
 
 /* TABLET (≤ 992px) */
@@ -72,28 +69,33 @@ https://templatemo.com/tm-561-purple-buzz
   .banner-wrapper,
   #index_banner,
   #index_banner .carousel-inner,
-  #index_banner .carousel-item {
+  #index_banner .carousel-item,
+  #index_banner .carousel-item .row {
     min-height: 85vh !important;
   }
 
   .banner-heading {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
   }
 }
 
 /* MOBILE PHONE (≤ 767px) */
 @media (max-width: 767px) {
 
+  /* Image couvre bien toute la section */
   .banner-wrapper,
   #index_banner,
   #index_banner .carousel-inner,
-  #index_banner .carousel-item {
+  #index_banner .carousel-item,
+  #index_banner .carousel-item .row {
     min-height: 100vh !important;
     min-height: 100svh !important;
+    min-height: 100vh !important;
   }
 
-  .banner-wrapper {
+  #index_banner {
     background-position: center center !important;
+    background-size: cover !important;
   }
 
   /* Contenu centré et lisible */

@@ -24,6 +24,11 @@ https://templatemo.com/tm-561-purple-buzz
   margin-top: 0 !important;
 }
 
+/* Move header text down by 20px */
+.banner-heading {
+  margin-top: 50px;
+}
+
 /* ==============================
    HERO BANNER - Image plein écran
    ============================== */
@@ -1609,5 +1614,76 @@ footer .footer-contact a:hover {
 
   #filterList {
     gap: 20px !important;
+  }
+}
+
+/* ========================================
+   FINAL MOBILE VISIBILITY PATCH
+   Keep desktop structure, improve phone visibility
+   ======================================== */
+
+/* Keep hero content layout unchanged */
+#index_banner .banner-content {
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: inherit;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Paragraphes noirs avec fond blanc flou, sans toucher au reste du header */
+#index_banner .banner-content .banner-body {
+  color: #111111 !important;
+  background: rgba(255, 255, 255, 0.58);
+  border-radius: 12px;
+  padding: 0.75rem 1rem !important;
+  display: inline-block;
+  max-width: 100%;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 767px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  img,
+  video,
+  iframe,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Header hero background: push image to the right with a small right margin. */
+  #index_banner {
+    background-position: calc(100% - 14px) center !important;
+    background-size: cover !important;
+  }
+
+  #index_banner .banner-content .banner-body {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 10px;
+    padding: 0.65rem 0.85rem !important;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Footer background: same right anchor so helmet remains visible on phone. */
+  footer.bg-secondary {
+    background-position: calc(100% - 14px) bottom !important;
+    background-size: cover !important;
+  }
+
+  .container,
+  .container-fluid {
+    max-width: 100%;
+  }
+
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }

@@ -59,6 +59,14 @@
             object-fit: cover;
             object-position: center;
             z-index: 0;
+            pointer-events: none;
+        }
+
+        #produits-banner .hero-video::-webkit-media-controls,
+        #produits-banner .hero-video::-webkit-media-controls-panel,
+        #produits-banner .hero-video::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
         }
 
         #produits-banner .hero-video-overlay {
@@ -559,7 +567,12 @@
             }
 
             #produits-banner .hero-video {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
                 object-position: center;
+                pointer-events: none !important;
             }
 
             #produits-banner .hero-video-overlay {
@@ -743,8 +756,8 @@
     </nav>
 
     <div class="banner-wrapper bg-light" id="produits-banner">
-        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
-        <source src="assets/img/v.mp4?v=20260312" type="video/mp4">
+        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" tabindex="-1" aria-hidden="true">
+        <source src="assets/img/v.mp4?v=20260313b" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
         <div id="index_banner" class="banner-vertical-center-index container-fluid pt-5">
@@ -825,6 +838,34 @@
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
+        (function () {
+            const heroVideo = document.querySelector('#produits-banner .hero-video');
+            if (!heroVideo) return;
+
+            heroVideo.muted = true;
+            heroVideo.setAttribute('muted', '');
+            heroVideo.setAttribute('playsinline', '');
+            heroVideo.setAttribute('webkit-playsinline', '');
+
+            const tryPlayVideo = function () {
+                const playPromise = heroVideo.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(function () { });
+                }
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', tryPlayVideo, { once: true });
+            } else {
+                tryPlayVideo();
+            }
+
+            document.addEventListener('touchstart', tryPlayVideo, { once: true, passive: true });
+            document.addEventListener('visibilitychange', function () {
+                if (!document.hidden) tryPlayVideo();
+            });
+        })();
+
         document.querySelectorAll('.products-search-dropdown .dropdown-item').forEach(function (item) {
             item.addEventListener('click', function () {
                 const targetInputId = this.getAttribute('data-target-input');

@@ -21,6 +21,15 @@ const partnersData = [
         image: './assets/img/archideco.jpg'
     },
 
+    {
+        category: 'constructeur', // Constructeur
+        name: 'N&K Bâtiment',
+        contact: '97 364 866',
+        address: 'Beni Khiar',
+        page: '',
+        image: './assets/img/ancle.jpeg'
+    },
+
     // Add more partners here following the same structure
     /*
     {

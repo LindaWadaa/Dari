@@ -129,7 +129,7 @@ $(document).ready(function() {
             const cardHtml = `
                 <div class="col-xl-3 col-md-4 col-sm-6 project ${product.category}">
                     <div class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                        <img class="service card-img" src="${product.image}" alt="${product.name}">
+                        <img class="service card-img" src="${product.image}" alt="${product.name}" loading="lazy" decoding="async" fetchpriority="low">
                         <div class="service-work-vertical card-img-overlay d-flex flex-column justify-content-end">
                             <div class="service-work-content text-left text-light w-100">
                                 <span class="btn btn-outline-light rounded-pill mb-2 px-4 light-300" style="font-weight: 600;">${product.name}</span>

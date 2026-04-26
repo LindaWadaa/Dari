@@ -301,14 +301,14 @@ const partnersData = [
             page: '(11) Facebook',
             image: './assets/img/services-01.jpg'
         },*/
-    {
+   /* {
         category: 'agent', // Agent immobilier
         name: 'Cactus',
         contact: '29074198',
         address: 'Nabeul',
         page: 'https://www.cactusimmobilier.com/',
         image: './assets/img/cactus.svg'
-    },/*
+    },*//*
     {
         category: 'agent', // Agent immobilier
         name: 'Metis immo',

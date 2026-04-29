@@ -284,16 +284,16 @@ const partnersData = [
 
 
 
-    /*
+    
         {
             category: 'agent', // Agent immobilier
-            name: 'Tecnocasa nabeul',
-            contact: '29085050',
+            name: 'General Immobilier',
+            contact: '22 720 000',
             address: 'Nabeul',
-            page: 'Sw Business Sol',
-            image: './assets/img/services-01.jpg'
+            page: 'https://www.facebook.com/people/General-Immobilier/100092658322303/',
+            image: './assets/img/general.jpeg'
         },
-        {
+     /*   {
             category: 'agent', // Agent immobilier
             name: 'Tecnocasa AFH',
             contact: '29676662',
